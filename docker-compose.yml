@@ -1,0 +1,14 @@
+version: '3.4'
+services:
+  flask_server:
+    build: .
+    container_name: flask_blog
+    image: flask_blog
+    command: flask run --host=0.0.0.0
+    environment:
+      - FLASK_APP=./app/index.py
+      - FLASK_ENV=development
+    ports:
+    - '5000:5000'
+    volumes:
+    - ${PWD}:/usr/src/
